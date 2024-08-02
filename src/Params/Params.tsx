@@ -15,8 +15,11 @@ class Params extends Component<IProps> {
     if (!params || params.length === 0) {
       return null;
     }
-    return (
-      params.map((row, i) =>
+    return [
+      <p key="param-structure" className="param-structure-requirement">
+        Please note that parameter structure within the request must contain named parameters as a by-name object, and not as positional arguments in a by-position array
+      </p>,
+      ...params.map((row, i) =>
         <section>
           <h3>
             {i + 1}. {row.name}
@@ -37,7 +40,7 @@ class Params extends Component<IProps> {
           />
         </section>
       )
-    );
+    ];
   }
 }
 
