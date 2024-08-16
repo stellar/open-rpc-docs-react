@@ -19,7 +19,7 @@ npm install --save @stellar/open-rpc-docs-react
 ### Usage
 
 ```js
-import Method from "@stellar/open-rpc-docs-react";
+import Method from '@stellar/open-rpc-docs-react';
 ```
 
 and then use it somewhere in a project:
