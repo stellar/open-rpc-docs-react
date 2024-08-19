@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ContentDescriptor from "../ContentDescriptor/ContentDescriptor";
 import { ContentDescriptorObject } from "@open-rpc/meta-schema";
-import ExpansionTable from "../ExpansionTable/ExpansionTable";
 
 interface IProps {
   params?: ContentDescriptorObject[];
