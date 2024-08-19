@@ -1,80 +1,64 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from '@testing-library/react'
 import Links from "./Links";
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Links />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<Links />);
 });
 
 it("renders empty with no schema", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Links />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links />);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders empty with empty links", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Links links={[]}/>, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links links={[]}/>);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders a link method for a given schema link", () => {
-  const div = document.createElement("div");
   const link = {
     method: "get_user_address",
   };
-  ReactDOM.render(<Links links={[link]} />, div);
-  expect(div.innerHTML.includes("get_user_address")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links links={[link]} />);
+  expect(container.innerHTML.includes("get_user_address")).toBe(true);
 });
 
 it("renders a link params for a given schema link", () => {
-  const div = document.createElement("div");
   const link = {
     params: {
       foo: "$params.id",
     },
   };
-  ReactDOM.render(<Links links={[link]} />, div);
-  expect(div.innerHTML.includes("foo")).toBe(true);
-  expect(div.innerHTML.includes("$params.id")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links links={[link]} />);
+  expect(container.innerHTML.includes("foo")).toBe(true);
+  expect(container.innerHTML.includes("$params.id")).toBe(true);
 });
 
 it("renders a link description for a given schema link", () => {
-  const div = document.createElement("div");
   const link = {
     description: "my description",
   };
-  ReactDOM.render(<Links links={[link]} />, div);
-  expect(div.innerHTML.includes("my description")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links links={[link]} />);
+  expect(container.innerHTML.includes("my description")).toBe(true);
 });
 
 it("renders a link server url for a given schema link", () => {
-  const div = document.createElement("div");
   const link = {
     server: {
       url: "http://localhost:9210",
     },
   };
-  ReactDOM.render(<Links links={[link]} />, div);
-  expect(div.innerHTML.includes("localhost:9210")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links links={[link]} />);
+  expect(container.innerHTML.includes("localhost:9210")).toBe(true);
 });
 
 it("renders a link server url for a given schema link", () => {
-  const div = document.createElement("div");
   const link = {
     server: {
       url: "http://localhost:9210",
     },
   };
-  ReactDOM.render(<Links links={[link]} />, div);
-  expect(div.innerHTML.includes("localhost:9210")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Links links={[link]} />);
+  expect(container.innerHTML.includes("localhost:9210")).toBe(true);
 });

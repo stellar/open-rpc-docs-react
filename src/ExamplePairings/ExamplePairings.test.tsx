@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import ExamplePairings from "./ExamplePairings";
 import examples from "@open-rpc/examples";
 import refParser from "json-schema-ref-parser";
@@ -11,44 +10,35 @@ import {
 } from "@testing-library/react";
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<ExamplePairings />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<ExamplePairings />);
 });
 
 it("renders empty with no example", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<ExamplePairings />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<ExamplePairings />);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders empty with empty example", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<ExamplePairings examples={[]} />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<ExamplePairings examples={[]} />);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders examples", async () => {
-  const div = document.createElement("div");
   const simpleMath = await refParser.dereference(examples.simpleMath as any) as OpenrpcDocument;
 
   const method = simpleMath.methods[0] as MethodObject;
-  ReactDOM.render(
+  const { container } = render(
     <ExamplePairings
       method={method}
       examples={method.examples as ExamplePairingObject[]
       } />
-    , div);
-  expect(div.innerHTML.includes("simpleMathAdditionTwo")).toBe(true);
-  expect(div.innerHTML.includes("2")).toBe(true);
-  expect(div.innerHTML.includes("4")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  );
+  expect(container.innerHTML.includes("simpleMathAdditionTwo")).toBe(true);
+  expect(container.innerHTML.includes("2")).toBe(true);
+  expect(container.innerHTML.includes("4")).toBe(true);
 });
 
 it("renders examples with only schema examples and no method with multiple number examples", async () => {
-  const div = document.createElement("div");
   const testDoc: OpenrpcDocument = {
     info: {
       title: "test",
@@ -77,22 +67,21 @@ it("renders examples with only schema examples and no method with multiple numbe
   };
 
   const method = testDoc.methods[0] as MethodObject;
-  ReactDOM.render(
+  render(
     <ExamplePairings
       examples={method.examples as ExamplePairingObject[]
       } />
-    , div);
-  ReactDOM.unmountComponentAtNode(div);
+  );
 });
 
 it("renders examples and can switch between them", async () => {
   const simpleMath = await refParser.dereference(examples.simpleMath as any) as OpenrpcDocument;
   const method = simpleMath.methods[0] as MethodObject;
-  const { getByText, getByTestId, getAllByTestId } = render(
+  const { getByTestId, getAllByTestId } = render(
     <ExamplePairings
       method={method}
       examples={method.examples as ExamplePairingObject[]
-      } />,
+      } />
   );
   const node = getByTestId('example-pairing-select');
   fireEvent.change(node, { target: { value: '1' } });
@@ -105,14 +94,13 @@ it("renders examples and can switch between them", async () => {
 });
 
 it("renders examples by-name", async () => {
-  const div = document.createElement("div");
   const petstoreByName = await refParser.dereference(examples.petstoreByName as any) as OpenrpcDocument;
   const method = petstoreByName.methods[0] as MethodObject;
-  ReactDOM.render(
+  const { container } = render(
     <ExamplePairings
       method={method}
       examples={method.examples as ExamplePairingObject[]
-    } />, div);
-  expect(div.innerHTML).toContain("limit");
-  expect(div.innerHTML).toContain("1");
+    } />);
+  expect(container.innerHTML).toContain("limit");
+  expect(container.innerHTML).toContain("1");
 });
