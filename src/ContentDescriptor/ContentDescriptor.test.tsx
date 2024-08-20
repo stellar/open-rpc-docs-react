@@ -1,25 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "@testing-library/react";
 import ContentDescriptor from "./ContentDescriptor";
 import { ContentDescriptorObject } from "@open-rpc/meta-schema";
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<ContentDescriptor />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<ContentDescriptor />);
 });
 
 it("renders empty with no schema", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<ContentDescriptor />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<ContentDescriptor />);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders empty with empty schema", () => {
-  const div = document.createElement("div");
   const emptyContentDescriptor = {} as ContentDescriptorObject;
-  ReactDOM.render(<ContentDescriptor contentDescriptor={emptyContentDescriptor} />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<ContentDescriptor contentDescriptor={emptyContentDescriptor} />);
+  expect(container.innerHTML).toBe("");
 });

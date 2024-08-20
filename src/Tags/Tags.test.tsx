@@ -1,16 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "@testing-library/react";
 import Tags from "./Tags";
 
 it("renders empty with empty tags", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Tags tags={[]} />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Tags tags={[]} />);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders schema tags", () => {
-  const div = document.createElement("div");
   const tags = [
     {
       name: "salad",
@@ -19,8 +16,7 @@ it("renders schema tags", () => {
       name: "mytag",
     },
   ];
-  ReactDOM.render(<Tags tags={tags} />, div);
-  expect(div.innerHTML.includes("salad")).toBe(true);
-  expect(div.innerHTML.includes("mytag")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Tags tags={tags} />);
+  expect(container.innerHTML.includes("salad")).toBe(true);
+  expect(container.innerHTML.includes("mytag")).toBe(true);
 });
