@@ -16,8 +16,8 @@ class Errors extends Component<IProps> {
     }
     return (
       <ExpansionTable headers={["Code", "Message"]}>
-        {errors.map((row) => (
-          <tr>
+        {errors.map((row, i) => (
+          <tr key={i}>
             <td>{row.code}</td>
             <td>{row.message}</td>
           </tr>

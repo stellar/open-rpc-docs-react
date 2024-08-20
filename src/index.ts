@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/no-unassigned-import
+// eslint-disable-next-line import-x/no-unassigned-import
 import './index.css';
-import Method from './Method/Method';
+import method from './Method/Method';
 
 export { default as ContentDescriptor } from './ContentDescriptor/ContentDescriptor';
 export { default as Errors } from './Errors/Errors';
@@ -14,4 +14,4 @@ export { default as Servers } from './Servers/Servers';
 export { default as Tags } from './Tags/Tags';
 export { default as InteractiveMethod } from './InteractiveMethod/InteractiveMethod';
 
-export default Method;
+export default method;

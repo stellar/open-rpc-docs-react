@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ContentDescriptor from "../ContentDescriptor/ContentDescriptor";
 import { ContentDescriptorObject } from "@open-rpc/meta-schema";
-import ExpansionTable from "../ExpansionTable/ExpansionTable";
 
 interface IProps {
   params?: ContentDescriptorObject[];
@@ -20,7 +19,7 @@ class Params extends Component<IProps> {
         Please note that parameter structure within the request must contain named parameters as a by-name object, and not as positional arguments in a by-position array
       </p>,
       ...params.map((row, i) =>
-        <section>
+        <section key={`params-section-${i}`}>
           <h3>
             {i + 1}. {row.name}
             {

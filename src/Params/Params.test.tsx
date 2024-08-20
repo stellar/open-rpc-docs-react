@@ -1,29 +1,33 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from '@testing-library/react';
 import Params from "./Params";
 
+beforeEach(() => {
+  // IntersectionObserver isn't available in test environment
+  const mockIntersectionObserver = jest.fn();
+  mockIntersectionObserver.mockReturnValue({
+    observe: () => null,
+    unobserve: () => null,
+    disconnect: () => null
+  });
+  window.IntersectionObserver = mockIntersectionObserver;
+});
+
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Params />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<Params />);
 });
 
 it("renders empty with no schema", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Params />, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Params />);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders empty with empty params", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(<Params params={[]}/>, div);
-  expect(div.innerHTML).toBe("");
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Params params={[]}/>);
+  expect(container.innerHTML).toBe("");
 });
 
 it("renders params", () => {
-  const div = document.createElement("div");
   const params = [
     {
       description: "tags to filter by",
@@ -33,9 +37,8 @@ it("renders params", () => {
       },
     },
   ];
-  ReactDOM.render(<Params params={params} disableTransitionProps={true}/>, div);
-  expect(div.innerHTML.includes("tags")).toBe(true);
-  expect(div.innerHTML.includes("tags to filter by")).toBe(true);
-  expect(div.innerHTML.includes("string")).toBe(true);
-  ReactDOM.unmountComponentAtNode(div);
+  const { container } = render(<Params params={params} />);
+  expect(container.innerHTML.includes("tags")).toBe(true);
+  expect(container.innerHTML.includes("tags to filter by")).toBe(true);
+  expect(container.innerHTML.includes("string")).toBe(true);
 });
