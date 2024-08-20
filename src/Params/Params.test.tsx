@@ -2,6 +2,17 @@ import React from "react";
 import { render } from '@testing-library/react';
 import Params from "./Params";
 
+beforeEach(() => {
+  // IntersectionObserver isn't available in test environment
+  const mockIntersectionObserver = jest.fn();
+  mockIntersectionObserver.mockReturnValue({
+    observe: () => null,
+    unobserve: () => null,
+    disconnect: () => null
+  });
+  window.IntersectionObserver = mockIntersectionObserver;
+});
+
 it("renders without crashing", () => {
   render(<Params />);
 });
@@ -26,10 +37,8 @@ it("renders params", () => {
       },
     },
   ];
-  const { container } = render(<Params params={params} disableTransitionProps={true} />);
+  const { container } = render(<Params params={params} />);
   expect(container.innerHTML.includes("tags")).toBe(true);
   expect(container.innerHTML.includes("tags to filter by")).toBe(true);
-  // The following fails, something to do with <ScrollCheck /> in the
-  // @stoplight/json-schema-viewer package. I don't know how to fix that.
   expect(container.innerHTML.includes("string")).toBe(true);
 });
