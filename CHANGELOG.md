@@ -1,36 +1,45 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Unreleased](https://github.com/stellar/open-rpc-docs-react/compare/v0.2.0...HEAD)
 
-## [0.2.0]
-### Uncategorized
+### Changed
+
+- Output different example server URLs for `stellar-rpc` and `anchor-platform` methods in `ExamplePairing.tsx` ([#9](https://github.com/stellar/open-rpc-docs-react/pull/9))
+
+---
+
+> _Note:_ Changelog entries from the MetaMask package are preserved below.
+
+## [0.2.0](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.1.2...v0.2.0)
+
 - feat(dependency): updated react version to 18 ([#30](https://github.com/MetaMask/open-rpc-docs-react/pull/30))
 
-## [0.1.2]
-### Uncategorized
+## [0.1.2](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.1.1...v0.1.2)
+
 - Fixed stoplight css scoping ([#19](https://github.com/MetaMask/open-rpc-docs-react/pull/19))
 
-## [0.1.1]
-### Uncategorized
+## [0.1.1](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.1.0...v0.1.1)
+
 - handle when meatamask is not installed ([#17](https://github.com/MetaMask/open-rpc-docs-react/pull/17))
 
-## [0.1.0]
-### Uncategorized
+## [0.1.0](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.0.3...v0.1.0)
+
 - Fixed alignemnt of interactive method ([#15](https://github.com/MetaMask/open-rpc-docs-react/pull/15))
 - Fixed linking issues ([#14](https://github.com/MetaMask/open-rpc-docs-react/pull/14))
 - Removed inline on h1 tag in Method ([#13](https://github.com/MetaMask/open-rpc-docs-react/pull/13))
 - Fixed repo urls ([#12](https://github.com/MetaMask/open-rpc-docs-react/pull/12))
 
-## [0.0.3]
-### Uncategorized
+## [0.0.3](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.0.2...v0.0.3)
+
 - Fixed error that happens with boolean schemas ([#10](https://github.com/MetaMask/openrpc-docs-react/pull/10))
 
-## [0.0.2]
-### Uncategorized
+## [0.0.2](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.0.1...v0.0.2)
+
 - Change json-schema-viewer back to stoplight ([#7](https://github.com/MetaMask/openrpc-docs-react/pull/7))
 - Fixed tests that used ESM ([#8](https://github.com/MetaMask/openrpc-docs-react/pull/8))
 - fix: remove unused deps ([#6](https://github.com/MetaMask/openrpc-docs-react/pull/6))
@@ -82,7 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: improve test coverage
 - fix: fallback example pairings to schema examples
 - fix(examplePairing): add more test coverage
-- Merge branch 'fix/example-pairing-by-name' of https://github.com/open-rpc/docs-react into fix/example-pairing-by-name
+- Merge branch 'fix/example-pairing-by-name' of <https://github.com/open-rpc/docs-react> into fix/example-pairing-by-name
 - fix(examplePairing): add tests for by-name and empty position
 - Update README.md
 - fix: add examples paramStructure by-name support
@@ -173,8 +182,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat: add circle config with semantic release
 - feat: initial commit
 
-## [0.0.1]
-### Uncategorized
+## [0.0.1](https://github.com/MetaMask/open-rpc-docs-react/releases/tag/v0.0.1)
+
 - Changed CODEOWNERS
 - Changed README and package name
 - Fixed tests
@@ -222,7 +231,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: improve test coverage
 - fix: fallback example pairings to schema examples
 - fix(examplePairing): add more test coverage
-- Merge branch 'fix/example-pairing-by-name' of https://github.com/open-rpc/docs-react into fix/example-pairing-by-name
+- Merge branch 'fix/example-pairing-by-name' of <https://github.com/open-rpc/docs-react> into fix/example-pairing-by-name
 - fix(examplePairing): add tests for by-name and empty position
 - Update README.md
 - fix: add examples paramStructure by-name support
@@ -312,12 +321,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: change package.json version
 - feat: add circle config with semantic release
 - feat: initial commit
-
-[Unreleased]: https://github.com/stellar/open-rpc-docs-react/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/stellar/open-rpc-docs-react/compare/v0.1.2...v0.2.0
-[0.1.2]: https://github.com/stellar/open-rpc-docs-react/compare/v0.1.1...v0.1.2
-[0.1.1]: https://github.com/stellar/open-rpc-docs-react/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/stellar/open-rpc-docs-react/compare/v0.0.3...v0.1.0
-[0.0.3]: https://github.com/stellar/open-rpc-docs-react/compare/v0.0.2...v0.0.3
-[0.0.2]: https://github.com/stellar/open-rpc-docs-react/compare/v0.0.1...v0.0.2
-[0.0.1]: https://github.com/stellar/open-rpc-docs-react/releases/tag/v0.0.1

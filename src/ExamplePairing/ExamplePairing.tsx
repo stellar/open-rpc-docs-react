@@ -56,13 +56,15 @@ class ExamplePairing extends Component<IProps, {}> {
       id: 8675309,
       result: (examplePairing.result as ExampleObject).value,
     };
-    // const jsCode = `await window.ethereum.request(${JSON.stringify(methodCall, null, "  ")});`;
+    const serverUrl = methodName.indexOf('_') > -1
+      ? 'https://platform-server.exampleanchor.com'
+      : 'https://soroban-testnet.stellar.org'
     const curlCode = `curl -X POST \\
 -H 'Content-Type: application/json' \\
 -d '${JSON.stringify(methodCall, null, 2)}' \\
-https://soroban-testnet.stellar.org:443 | jq`;
+${serverUrl} | jq`;
     const jsCode = `let requestBody = ${JSON.stringify(methodCall, null, 2)}
-let res = await fetch('https://soroban-testnet.stellar.org', {
+let res = await fetch('${serverUrl}', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -73,7 +75,7 @@ let json = await res.json()
 console.log(json)`;
 
     const pythonCode = `import json, requests
-res = requests.post('https://soroban-testnet.stellar.org', json=${JSON.stringify(
+res = requests.post(${serverUrl}, json=${JSON.stringify(
       methodCall,
       null,
       4,
