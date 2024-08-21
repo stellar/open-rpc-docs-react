@@ -1459,7 +1459,7 @@ __metadata:
     "@types/jest": ^29.5.0
     "@types/json-schema": ^7.0.11
     "@types/lodash": ^4.14.194
-    "@types/node": ^16
+    "@types/node": ^20
     "@types/react": ^18.2.6
     "@types/react-dom": ^18.0.0
     "@types/react-syntax-highlighter": ^15.5.6
@@ -2011,10 +2011,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16":
-  version: 16.18.34
-  resolution: "@types/node@npm:16.18.34"
-  checksum: 35c0ffe09687578d002ceb7e706d0ba450546aeb3d2716f28691f2af0063bd274dbde0f741d087ea217f2a8db413eb700d22dfb4f08a67986ff801423bd7be8d
+"@types/node@npm:^20":
+  version: 20.16.1
+  resolution: "@types/node@npm:20.16.1"
+  dependencies:
+    undici-types: ~6.19.2
+  checksum: 2b8f30f416f5c1851ffa8a13ef6c464a5e355edfd763713c22813a7839f6419a64e27925f9e89c972513d78432263179332f0bffb273d16498233bfdf495d096
   languageName: node
   linkType: hard
 
@@ -8978,6 +8980,13 @@ __metadata:
   version: 2.1.0
   resolution: "uc.micro@npm:2.1.0"
   checksum: 37197358242eb9afe367502d4638ac8c5838b78792ab218eafe48287b0ed28aaca268ec0392cc5729f6c90266744de32c06ae938549aee041fc93b0f9672d6b2
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: de51f1b447d22571cf155dfe14ff6d12c5bdaec237c765085b439c38ca8518fc360e88c70f99469162bf2e14188a7b0bcb06e1ed2dc031042b984b0bb9544017
   languageName: node
   linkType: hard
 
