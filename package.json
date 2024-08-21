@@ -21,12 +21,11 @@
     "build:clean": "rimraf dist && yarn build",
     "build:docs": "typedoc",
     "link:setup": "rm -rf ./node_modules/react ./node_modules/react-dom",
-    "lint": "yarn lint:eslint && yarn lint:constraints && yarn lint:misc --check && yarn lint:dependencies --check && yarn lint:changelog",
-    "lint:changelog": "auto-changelog validate",
+    "lint": "yarn lint:eslint && yarn lint:constraints && yarn lint:misc --check && yarn lint:dependencies --check",
     "lint:constraints": "yarn constraints",
     "lint:dependencies": "depcheck && yarn dedupe",
     "lint:eslint": "eslint . --cache --ext js,ts",
-    "lint:fix": "yarn lint:eslint --fix && yarn lint:constraints --fix && yarn lint:misc --write && yarn lint:dependencies && yarn lint:changelog",
+    "lint:fix": "yarn lint:eslint --fix && yarn lint:constraints --fix && yarn lint:misc --write && yarn lint:dependencies",
     "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' '**/*.yml' '!.yarnrc.yml' '**/*.yaml' --ignore-path .gitignore --no-error-on-unmatched-pattern",
     "prepack": "./scripts/prepack.sh",
     "test": "jest && jest-it-up",
@@ -51,7 +50,6 @@
   "devDependencies": {
     "@lavamoat/allow-scripts": "^2.3.1",
     "@lavamoat/preinstall-always-fail": "^1.0.0",
-    "@metamask/auto-changelog": "^3.4.4",
     "@metamask/eslint-config": "^13.0.0",
     "@metamask/eslint-config-jest": "^13.0.0",
     "@metamask/eslint-config-nodejs": "^13.0.0",
@@ -100,7 +98,7 @@
   },
   "packageManager": "yarn@3.2.1",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=20.0.0"
   },
   "publishConfig": {
     "access": "public",
