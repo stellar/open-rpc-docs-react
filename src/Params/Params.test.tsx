@@ -42,3 +42,17 @@ it("renders params", () => {
   expect(container.innerHTML.includes("tags to filter by")).toBe(true);
   expect(container.innerHTML.includes("string")).toBe(true);
 });
+
+it("renders our by-name parameter structure note", () => {
+  const params = [
+    {
+      description: "tags to filter by",
+      name: "tags",
+      schema: {
+        type: "string",
+      },
+    },
+  ];
+  const { container } = render(<Params params={params} />);
+  expect(container.innerHTML.includes("Please note that parameter structure within the request must contain named parameters as a by-name object, and not as positional arguments in a by-position array")).toBe(true);
+})
