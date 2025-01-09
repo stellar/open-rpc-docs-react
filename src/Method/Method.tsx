@@ -34,6 +34,8 @@ interface IProps {
   methodPlugins?: Array<React.FC<IMethodPluginProps>>;
   components?: {
     CodeBlock: React.FC<{children: string, className?: string}>;
+    Tabs?: React.FC<{children: any;}>;
+    TabItem?: React.FC<{children: any; label: string; value: string}>;
   };
   onExamplePairingChange?: (examplePairing: ExamplePairingObject | undefined) => void;
   reactJsonOptions?: object;
