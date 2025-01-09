@@ -6,7 +6,7 @@ on:
     types: [published]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,13 +19,19 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           always-auth: true
 
+      - name: Setup .yarnrc.yml
+        run: |
+          yarn config set npmAuthToken $NODE_AUTH_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Install Depencencies
         run: yarn install
 
       - name: Build, Test, and Package
         run: yarn prepack && yarn test
 
-      - name: Publish npm package to both places
+      - name: Publish npm package to the registry
         run: |
           yarn npm publish --access public
         env:
