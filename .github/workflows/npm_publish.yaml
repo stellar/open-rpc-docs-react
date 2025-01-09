@@ -20,8 +20,7 @@ jobs:
           always-auth: true
 
       - name: Setup .yarnrc.yml
-        run: |
-          yarn config set npmAuthToken $NODE_AUTH_TOKEN
+        run: yarn config set npmAuthToken $NODE_AUTH_TOKEN
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
