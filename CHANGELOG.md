@@ -5,11 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/stellar/open-rpc-docs-react/compare/v0.2.0...HEAD)
+## [Unreleased](https://github.com/stellar/open-rpc-docs-react/compare/v0.2.1...HEAD)
+
+## [v0.2.1](https://github.com/stellar/open-rpc-docs-react/compare/v0.2.0...v0.2.1)
+
+### Fixed
+
+- Include the extra components passed in the `Method` component interface ([#16](https://github.com/stellar/open-rpc-docs-react/pull/16))
+
+## [v0.2.0](https://github.com/MetaMask/open-rpc-docs-react/compare/v0.2.0...stellar:open-rpc-docs-react:v0.2.0)
 
 ### Changed
 
+- Update and adapt Github actions ([#14](https://github.com/stellar/open-rpc-docs-react/pull/14), [#13](https://github.com/stellar/open-rpc-docs-react/pull/13), [#10](https://github.com/stellar/open-rpc-docs-react/pull/10))
+- Add tests for Stellar-specific customizations ([#11](https://github.com/stellar/open-rpc-docs-react/pull/11))
 - Output different example server URLs for `stellar-rpc` and `anchor-platform` methods in `ExamplePairing.tsx` ([#9](https://github.com/stellar/open-rpc-docs-react/pull/9))
+- Add Stellar customizations from our pre-existing patchy, hacky workaround ([#15](https://github.com/stellar/open-rpc-docs-react/pull/5))
 
 ---
 

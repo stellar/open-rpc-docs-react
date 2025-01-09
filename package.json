@@ -1,6 +1,6 @@
 {
   "name": "@stellar/open-rpc-docs-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "OpenRPC Docs React for Stellar",
   "homepage": "https://github.com/stellar/open-rpc-docs-react#readme",
   "bugs": {
