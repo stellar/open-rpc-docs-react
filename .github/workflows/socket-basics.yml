@@ -11,7 +11,7 @@ name: Socket Basics security scan
 on:
   workflow_dispatch:
   schedule:
-    - cron: "49 13 * * 6"
+    - cron: '49 13 * * 6'
 
 permissions:
   contents: read
